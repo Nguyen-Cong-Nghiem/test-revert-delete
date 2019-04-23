@@ -1,0 +1,64 @@
+ebean.ddl.generate=false  
+ebean.ddl.run=false
+
+ebean.debug.sql=true  
+ebean.debug.lazyload=false
+
+ebean.classes=shippo.global.entities.delivery_service.DeliveryOrder,\
+              shippo.global.entities.delivery_service.OrderComment,\
+              shippo.global.entities.operation_service.ScanningHistory,\
+              shippo.global.entities.delivery_service.Location,\
+              shippo.global.entities.rider_service.TransportationTask,\
+              shippo.global.entities.auth_service.UsersAuth,\
+              shippo.global.entities.delivery_service.Merchant,\
+              shippo.global.entities.operation_service.Parcel,\
+              shippo.global.entities.operation_service.Hub,\
+              shippo.global.entities.operation_service.PickupRequestOrder,\
+              shippo.global.entities.operation_service.PickupRequest,\
+              shippo.global.entities.delivery_service.ReceiverMappingMerchant,\
+              shippo.global.entities.delivery_service.ReceiverInformation,\
+
+# -------------------------------------------------------------
+# Transaction Logging
+# -------------------------------------------------------------
+
+# Use java util logging to log transaction details
+#ebean.loggingToJavaLogger=true
+
+# General logging level: (none, explicit, all)
+ebean.logging=all
+
+# Sharing log files: (none, explicit, all)
+ebean.logging.logfilesharing=all
+
+# locations of transaction logs
+ebean.logging.directory=logs
+#ebean.logging.directory=${catalina.base}/logs/trans
+
+# Specific Log levels (none, summary, binding, sql)
+ebean.logging.iud=sql
+ebean.logging.query=sql
+ebean.logging.sqlquery=sql
+
+ebean.logging.txnCommit=none
+
+# -------------------------------------------------------------
+# DataSources (If using default Ebean DataSourceFactory)
+# -------------------------------------------------------------
+# You can specify many DataSources (one per EbeanServer)  and
+# one of them is defined as the default/primary DataSource
+
+# specify the default/primary DataSource
+
+#region --delivery_serviec--
+datasource.delivery_service.username=postgres
+datasource.delivery_service.password=123456
+datasource.delivery_service.databaseUrl=jdbc:postgresql://localhost:5432/delivery_service
+datasource.delivery_service.databaseDriver=org.postgresql.Driver
+datasource.delivery_service.minConnections=2
+datasource.delivery_service.maxConnections=10
+datasource.delivery_service.heartbeatsql=select 1
+datasource.delivery_service.isolationlevel=read_committed
+#endregion
+
+
